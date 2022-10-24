@@ -4,15 +4,22 @@ package edu.farmingdale.csc325_garmentlab;
  *
  * @author soblab
  */
-public class Shirts {
+public class Shirts implements Professional,Casual,Party{
     String name;
-    String Type;
+
+    public String getName() {
+        return name;
+    }public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
     public String getType(){
-        switch (name){
-            case "DressShirt":return "";
-            case "TShirt":return "";
-            case "LowTop":return "";
-            default: return "";
-        }
+        return switch (name) {
+            case "DressShirt" -> "Professional";
+            case "TShirt" -> "Casual";
+            case "LowTop" -> "Party";
+            default -> "";
+        };
     }
 }
